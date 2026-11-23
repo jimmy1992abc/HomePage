@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+title: Writing
+description: Notes on using AI in finance, by Jimmy Chen. What to automate, what to keep, and how to stay able to explain the number.
+permalink: /writing/
+---
+<section class="wrap page">
+  <header class="page__head">
+    <p class="label">Writing</p>
+    <h1>Notes on AI in finance</h1>
+    <p class="section__lead">What to automate, what to keep, and how to stay able to explain the number afterwards.</p>
+  </header>
+  {%- set posts = collections.writing %}
+  {% include "writing-list.njk" %}
+</section>
