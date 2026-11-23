@@ -1,0 +1,78 @@
+[
+  {
+    "id": "ledger-tooling",
+    "name": "Ledger tooling",
+    "kind": "Tooling",
+    "summary": "Connecting AI agents to an accounting ledger through the Model Context Protocol.",
+    "insight": "Give the agent a ledger, not a spreadsheet export.",
+    "body": [
+      "An agent working from an exported spreadsheet is working from a photograph. Through a protocol server it can query the ledger itself: accounts, invoices, bank transactions, payroll. I maintain a fork of the open-source Xero MCP server, where my changes include Australian payroll tools and stricter input validation, and I package recurring accounting procedures as reusable agent skills.",
+      "The model is the least interesting part of that arrangement. The procedure and the permissions are where the quality comes from."
+    ],
+    "lessons": [
+      "Read by default, draft by exception. An agent that can look at everything and post nothing is useful on day one and cannot make a mess.",
+      "Validate every identifier before it reaches a query. An ID that must be a GUID should be checked as a GUID, because model output is untrusted input.",
+      "Write the procedure down as a skill. A reconciliation that lives in someone's head cannot be delegated to a person or to a model."
+    ],
+    "link": {
+      "label": "github.com/XeroAPI/xero-mcp-server",
+      "url": "https://github.com/XeroAPI/xero-mcp-server"
+    }
+  },
+  {
+    "id": "afk",
+    "name": "AFK",
+    "kind": "Open source",
+    "summary": "A workflow that lets an AI coding agent work unattended and still hand back something a reviewer can trust.",
+    "insight": "An agent grading its own homework is not review.",
+    "body": [
+      "Getting an agent to write code is the easy part. The hard part is knowing when the work is finished. AFK packages a delivery sequence as a plugin for coding agents: design, tests, implementation, internal review, review by a different model, the full test suite, then handoff. A draft pull request is a checkpoint in that sequence, never the end of it.",
+      "It works across agent hosts, and nothing about the project it runs in is written back into the plugin."
+    ],
+    "lessons": [
+      "Independence beats capability. A reviewer from a different model family finds what the author could not notice, in the same way an auditor is useful because they did not prepare the accounts.",
+      "A finding is a hypothesis until someone demonstrates the consequence. Requiring evidence before a fix is what stops review from turning into churn.",
+      "State belongs outside the conversation. A run keeps a ledger of scope, decisions and open findings, so a new session can pick the work up without guessing."
+    ],
+    "link": {
+      "label": "github.com/jimmy1992abc/afk",
+      "url": "https://github.com/jimmy1992abc/afk"
+    }
+  },
+  {
+    "id": "mqt",
+    "name": "MQT",
+    "kind": "Private",
+    "summary": "A personal research and trading platform for US equities, written in Python.",
+    "insight": "Models propose, rules dispose.",
+    "body": [
+      "MQT covers market data, strategy analysis, risk controls, portfolio monitoring and audit logs. Language models do the reading and the analysis. They do not hold the keys: position limits, stops and order rules are ordinary code that a model's output passes through and cannot rewrite.",
+      "The repository is private and no strategy is published here. What transfers is the structure."
+    ],
+    "lessons": [
+      "Put the model where a wrong answer is cheap and a good answer is valuable. Research is that place. Order placement is not.",
+      "Run new ideas in shadow before they touch money. A change that has only ever been right in a backtest has not been tested.",
+      "Log every decision with the inputs that produced it. The morning-after review is where the system actually improves, and it needs the evidence."
+    ]
+  },
+  {
+    "id": "nestli",
+    "name": "Nestli",
+    "kind": "App",
+    "summary": "A baby-tracking app for iOS and Android, built and launched end to end.",
+    "insight": "Shipping to a store is a different discipline from building a demo.",
+    "body": [
+      "I owned the whole of it: product, mobile app, backend, data, the AI features, testing and the store releases. AI assistance is what made that scope possible for one person.",
+      "It also moved the bottleneck. Writing the code stopped being the slow part. Deciding what to build, and proving that it works on a real phone with a poor connection, became the work."
+    ],
+    "lessons": [
+      "The unhappy paths are the product. Loading, empty, offline and error states are most of what a tired parent actually meets.",
+      "One person can build across the stack with AI. One person still has to verify across the stack, and that part does not get faster by itself.",
+      "A release process is a control. Store review and versioning do for an app what a close checklist does for a set of books."
+    ],
+    "link": {
+      "label": "nestliapp.com",
+      "url": "https://nestliapp.com"
+    }
+  }
+]

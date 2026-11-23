@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Writing
+description: Notes on finance by Jimmy Chen. Close, reconciliation and controls, and how to use AI in them while staying able to explain the number.
+permalink: /writing/
+---
+<section class="wrap page">
+  <header class="page__head">
+    {% include "art/writing.njk" %}
+    <p class="eyebrow">Writing</p>
+    <h1>Notes on finance.</h1>
+    <p class="lead">Close, reconciliation and controls, and where AI fits into them.</p>
+  </header>
+  <div class="page__body narrow">
+    {%- set posts = collections.writing %}
+    {% include "writing-list.njk" %}
+  </div>
+</section>
