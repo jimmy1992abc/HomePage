@@ -5,8 +5,14 @@ const readableDate = new Intl.DateTimeFormat("en-AU", {
   timeZone: "UTC",
 });
 
+const sydneyYear = new Intl.DateTimeFormat("en-AU", {
+  year: "numeric",
+  timeZone: "Australia/Sydney",
+});
+
 export default function (config) {
   config.addPassthroughCopy({ "src/assets": "assets" });
+  config.addGlobalData("year", sydneyYear.format(new Date()));
 
   config.addCollection("writing", (api) =>
     api

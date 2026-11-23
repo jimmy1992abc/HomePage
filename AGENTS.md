@@ -21,8 +21,9 @@ Run `npm test` before every commit. The tests run a real build; there is no sepa
 
 | Path | Purpose |
 | --- | --- |
-| `src/_data/site.json` | Site name, URL, description and the contact email (single source) |
+| `src/_data/site.json` | Site name, URL, description, the contact email and the LinkedIn profile URL (single source) |
 | `src/_data/projects.json` | Projects shown on the homepage and `/projects/` |
+| `src/_data/quicklinks.json` | Quick-link groups in the site footer |
 | `src/writing/*.md` | Articles; the file name is the URL slug |
 | `src/_includes/` | Layouts and the shared article list |
 | `src/assets/css/site.css` | All styles and the design tokens |
@@ -33,8 +34,8 @@ Run `npm test` before every commit. The tests run a real build; there is no sepa
 
 These are requirements, not preferences. The tests enforce most of them.
 
-- The only contact detail is the email in `src/_data/site.json`. Never add a phone number, street or suburb, or another email address.
-- The site may say: CPA, Certified ScrumMaster, UNSW, Sydney. It must not name an employer, client, job title or employment date, and must not link to or mention LinkedIn.
+- The only contact details are the email and the LinkedIn profile URL in `src/_data/site.json`. Never add a phone number, street or suburb, or another email address.
+- The site may say: CPA, Certified ScrumMaster, UNSW, Sydney. It must not name an employer, client, job title or employment date. LinkedIn appears only as that profile link.
 - Never write anything that says or implies the author is available for work.
 - Do not commit a list of names to avoid. Supply them through the `PRIVACY_BLOCKLIST` environment variable (comma-separated); the "private blocklist" test checks the build against it and never prints a term.
 - Outbound links must be on the allowlist in `tests/site.test.mjs`. Adding a host is a deliberate change to that list.

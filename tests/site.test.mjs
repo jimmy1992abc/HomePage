@@ -11,12 +11,18 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const eleventyCli = join(root, "node_modules/@11ty/eleventy/cmd.cjs");
 const site = JSON.parse(await readFile(join(root, "src/_data/site.json"), "utf8"));
 const projects = JSON.parse(await readFile(join(root, "src/_data/projects.json"), "utf8"));
+const quicklinks = JSON.parse(await readFile(join(root, "src/_data/quicklinks.json"), "utf8"));
 const articleSources = (await readdir(join(root, "src/writing"))).filter((name) => name.endsWith(".md"));
 
+const LINKEDIN_PROFILE = "https://www.linkedin.com/in/jimmy-chen-oz/";
 const OUTBOUND_ALLOWLIST = [
   "https://github.com/jimmy1992abc/afk",
   "https://nestliapp.com",
   "https://github.com/XeroAPI/xero-mcp-server",
+  "https://www.cpaaustralia.com.au/",
+  "https://www.unsw.edu.au/alumni",
+  "https://www.clarechen.com.au/",
+  LINKEDIN_PROFILE,
 ];
 const TEXT_EXTENSIONS = /\.(html|xml|txt|css|svg)$/;
 
@@ -127,10 +133,43 @@ test("no career or job-seeking language", () => {
     /\br[eé]sum[eé]\b/,
   ];
   for (const [path, content] of textFiles()) {
-    assert.doesNotMatch(decodeEntities(content).toLowerCase(), /linkedin/, path);
     const text = visibleText(content).toLowerCase();
     for (const pattern of patterns) assert.doesNotMatch(text, pattern, path);
   }
+});
+
+test("LinkedIn appears only as the approved profile link", () => {
+  assert.equal(site.linkedin, LINKEDIN_PROFILE);
+  let seen = 0;
+  for (const [path, content] of textFiles()) {
+    for (const [url] of decodeEntities(content).matchAll(/[^\s"'<>()]*linkedin\.[a-z]{2,}[^\s"'<>()]*/gi)) {
+      assert.equal(url, LINKEDIN_PROFILE, `${path}: ${url}`);
+      seen += 1;
+    }
+  }
+  assert.ok(seen > 0, "profile link is rendered");
+});
+
+test("footer quick links and credentials render", () => {
+  const links = quicklinks.flatMap((group) => group.links);
+  assert.ok(links.length > 0);
+  for (const [path, html] of htmlPages()) {
+    const footer = html.match(/<footer class="colophon">[\s\S]*<\/footer>/)?.[0];
+    assert.ok(footer, `${path}: footer`);
+    for (const group of quicklinks) assert.ok(footer.includes(`>${group.title}</h2>`), `${path}: footer group ${group.title}`);
+    for (const link of links) assert.ok(footer.includes(`href="${link.url}"`), `${path}: footer link ${link.url}`);
+    assert.ok(footer.includes(`href="${LINKEDIN_PROFILE}"`), `${path}: footer LinkedIn`);
+    assert.ok(footer.includes('src="/assets/logos/gmail.svg"'), `${path}: footer email icon`);
+    assert.match(footer, /Copyright © \d{4} /, `${path}: copyright year`);
+  }
+  const home = page("/");
+  const credentials = home.match(/<ul class="credentials"[\s\S]*?<\/ul>/)?.[0];
+  assert.ok(credentials, "homepage credentials");
+  for (const alt of ["CPA Australia", "UNSW Sydney", "Certified ScrumMaster"]) assert.ok(credentials.includes(`alt="${alt}"`), `credential logo ${alt}`);
+  for (const path of [...attributes(credentials, "src"), ...attributes(credentials, "srcset")]) {
+    assert.ok(path.startsWith("/assets/logos/") && files.has(path), `credential logo file ${path}`);
+  }
+  assert.ok(home.includes(`<p class="social"><a href="${LINKEDIN_PROFILE}"`), "homepage LinkedIn link");
 });
 
 test("outbound links are allowlisted", () => {

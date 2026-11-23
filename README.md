@@ -47,7 +47,11 @@ Projects live in `src/_data/projects.json`. Each has an `id` (its anchor on `/pr
 
 ### Change the name, description or email
 
-Edit `src/_data/site.json`. Every page, the feed and the footer read from it.
+Edit `src/_data/site.json`. Every page, the feed and the footer read from it. The LinkedIn profile URL lives there too; a change must also be made to `LINKEDIN_PROFILE` in `tests/site.test.mjs`.
+
+### Edit the footer quick links
+
+The footer columns come from `src/_data/quicklinks.json`: each group has a `title` and a list of `links` with a `label` and a `url`. The Connect column (email and LinkedIn) is in `src/_includes/layouts/base.njk`. An outbound URL must also be added to the allowlist in `tests/site.test.mjs`.
 
 ## Structure
 
