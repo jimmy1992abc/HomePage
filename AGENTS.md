@@ -50,6 +50,7 @@ These are requirements, not preferences. The tests enforce most of them.
 
 - No client-side JavaScript, web fonts, analytics or third-party resources. The tests fail if any appear.
 - Eleventy is the only dependency. Justify any addition in the pull request.
+- After any dependency change, check that `package-lock.json` has no `"extraneous"` entries; regenerate it with `npx npm@10 install` if it does, or `npm ci` fails on Linux.
 - Keep URLs stable: do not rename a published article file.
 - Colours come from the custom properties at the top of `site.css`; both the light and dark sets must keep WCAG AA contrast.
 - Work on a branch and open a pull request. Do not push to `main`, change repository settings or touch DNS unless asked.
