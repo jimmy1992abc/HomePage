@@ -1,6 +1,6 @@
 # jimmychen.com.au
 
-Jimmy Chen's personal site: essays on using AI in finance, and notes on the projects behind them. Static HTML built with [Eleventy](https://www.11ty.dev/) and published to GitHub Pages.
+Jimmy Chen's personal site: accounting and finance first, with essays and notes on the software and AI projects around them. Static HTML built with [Eleventy](https://www.11ty.dev/) and published to GitHub Pages.
 
 ## Local development
 
@@ -54,6 +54,7 @@ Edit `src/_data/site.json`. Every page, the feed and the footer read from it.
 | Path | Purpose |
 | --- | --- |
 | `src/index.njk` | Homepage |
+| `src/finance/index.njk`, `src/about/index.njk` | Finance and About pages |
 | `src/writing/` | Articles and the writing index |
 | `src/projects/index.njk` | Projects page |
 | `src/_includes/layouts/` | Page shell and article layout |

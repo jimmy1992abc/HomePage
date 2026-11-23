@@ -1,5 +1,25 @@
 [
   {
+    "id": "ledger-tooling",
+    "name": "Ledger tooling",
+    "kind": "Tooling",
+    "summary": "Connecting AI agents to an accounting ledger through the Model Context Protocol.",
+    "insight": "Give the agent a ledger, not a spreadsheet export.",
+    "body": [
+      "An agent working from an exported spreadsheet is working from a photograph. Through a protocol server it can query the ledger itself: accounts, invoices, bank transactions, payroll. I maintain a fork of the open-source Xero MCP server, where my changes include Australian payroll tools and stricter input validation, and I package recurring accounting procedures as reusable agent skills.",
+      "The model is the least interesting part of that arrangement. The procedure and the permissions are where the quality comes from."
+    ],
+    "lessons": [
+      "Read by default, draft by exception. An agent that can look at everything and post nothing is useful on day one and cannot make a mess.",
+      "Validate every identifier before it reaches a query. An ID that must be a GUID should be checked as a GUID, because model output is untrusted input.",
+      "Write the procedure down as a skill. A reconciliation that lives in someone's head cannot be delegated to a person or to a model."
+    ],
+    "link": {
+      "label": "github.com/XeroAPI/xero-mcp-server",
+      "url": "https://github.com/XeroAPI/xero-mcp-server"
+    }
+  },
+  {
     "id": "afk",
     "name": "AFK",
     "kind": "Open source",
@@ -14,7 +34,10 @@
       "A finding is a hypothesis until someone demonstrates the consequence. Requiring evidence before a fix is what stops review from turning into churn.",
       "State belongs outside the conversation. A run keeps a ledger of scope, decisions and open findings, so a new session can pick the work up without guessing."
     ],
-    "link": { "label": "github.com/jimmy1992abc/afk", "url": "https://github.com/jimmy1992abc/afk" }
+    "link": {
+      "label": "github.com/jimmy1992abc/afk",
+      "url": "https://github.com/jimmy1992abc/afk"
+    }
   },
   {
     "id": "mqt",
@@ -47,23 +70,9 @@
       "One person can build across the stack with AI. One person still has to verify across the stack, and that part does not get faster by itself.",
       "A release process is a control. Store review and versioning do for an app what a close checklist does for a set of books."
     ],
-    "link": { "label": "nestliapp.com", "url": "https://nestliapp.com" }
-  },
-  {
-    "id": "ledger-tooling",
-    "name": "Ledger tooling",
-    "kind": "Tooling",
-    "summary": "Connecting AI agents to an accounting ledger through the Model Context Protocol.",
-    "insight": "Give the agent a ledger, not a spreadsheet export.",
-    "body": [
-      "An agent working from an exported spreadsheet is working from a photograph. Through a protocol server it can query the ledger itself: accounts, invoices, bank transactions, payroll. I maintain a fork of the open-source Xero MCP server, where my changes include Australian payroll tools and stricter input validation, and I package recurring accounting procedures as reusable agent skills.",
-      "The model is the least interesting part of that arrangement. The procedure and the permissions are where the quality comes from."
-    ],
-    "lessons": [
-      "Read by default, draft by exception. An agent that can look at everything and post nothing is useful on day one and cannot make a mess.",
-      "Validate every identifier before it reaches a query. An ID that must be a GUID should be checked as a GUID, because model output is untrusted input.",
-      "Write the procedure down as a skill. A reconciliation that lives in someone's head cannot be delegated to a person or to a model."
-    ],
-    "link": { "label": "github.com/XeroAPI/xero-mcp-server", "url": "https://github.com/XeroAPI/xero-mcp-server" }
+    "link": {
+      "label": "nestliapp.com",
+      "url": "https://nestliapp.com"
+    }
   }
 ]

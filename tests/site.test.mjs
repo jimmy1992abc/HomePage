@@ -66,7 +66,7 @@ after(async () => {
 });
 
 test("expected routes exist", () => {
-  const routes = ["/", "/writing/", "/projects/", "/404.html", "/feed.xml", "/sitemap.xml", "/robots.txt", ...articleRoutes()];
+  const routes = ["/", "/finance/", "/about/", "/writing/", "/projects/", "/404.html", "/feed.xml", "/sitemap.xml", "/robots.txt", ...articleRoutes()];
   for (const route of routes) assert.ok(page(route), `missing ${route}`);
 });
 
@@ -146,7 +146,7 @@ test("outbound links are allowlisted", () => {
 test("no scripts or third-party resources", () => {
   for (const [path, html] of htmlPages()) {
     assert.doesNotMatch(html, /<(script|iframe|object|embed)[\s>]/i, path);
-    assert.doesNotMatch(html, /\son\w+="/i, `${path}: inline handler`);
+    assert.doesNotMatch(html, /\s(on\w+|style)="/i, `${path}: inline handler or style`);
     for (const src of attributes(html, "src")) assert.ok(src.startsWith("/"), `${path}: src ${src}`);
     for (const [tag, href] of html.matchAll(/<link\s[^>]*href="([^"]*)"[^>]*>/g)) {
       const sameSite = href.startsWith("/") || (tag.includes('rel="canonical"') && href.startsWith(`${site.url}/`));
@@ -184,7 +184,7 @@ test("feed and sitemap list every article with absolute URLs", () => {
     assert.ok(files.get("/feed.xml").includes(`<link href="${site.url}${route}"/>`), `feed: ${route}`);
     assert.ok(files.get("/sitemap.xml").includes(`<loc>${site.url}${route}</loc>`), `sitemap: ${route}`);
   }
-  for (const route of ["/", "/writing/", "/projects/"]) {
+  for (const route of ["/", "/finance/", "/about/", "/writing/", "/projects/"]) {
     assert.ok(files.get("/sitemap.xml").includes(`<loc>${site.url}${route}</loc>`), `sitemap: ${route}`);
   }
   assert.ok(!files.get("/sitemap.xml").includes("404"), "sitemap lists the 404 page");
@@ -198,7 +198,9 @@ test("every article and project is rendered", () => {
   assert.equal(projects.length, 4);
   for (const project of projects) {
     assert.ok(page("/projects/").includes(`<article class="project" id="${project.id}">`), `projects page: ${project.id}`);
-    assert.ok(page("/").includes(`href="/projects/#${project.id}"`), `homepage: ${project.id}`);
+  }
+  for (const route of ["/finance/", "/writing/", "/projects/", "/about/"]) {
+    assert.ok(page("/").includes(`href="${route}"`), `homepage links to ${route}`);
   }
   const numbers = articleRoutes().map((route) => page(route).match(/No\. (\d+)/)?.[1]);
   assert.equal(new Set(numbers).size, articleSources.length, "article numbers are unique");

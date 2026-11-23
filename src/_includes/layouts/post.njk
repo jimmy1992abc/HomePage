@@ -3,16 +3,16 @@ layout: layouts/base.njk
 ---
 <article class="wrap wrap--narrow post">
   <header class="post__head">
-    <p class="label"><a href="/writing/">Writing</a> · No. {{ order | pad }}</p>
+    <p class="eyebrow"><a href="/writing/">Writing</a> · No. {{ order | pad }}</p>
     <h1>{{ title }}</h1>
-    <p class="post__lead">{{ description }}</p>
-    <p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time> · {{ content | readingMinutes }} min read</p>
+    <p class="lead">{{ description }}</p>
+    <p class="post__meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time> · {{ content | readingMinutes }} min read</p>
   </header>
   <div class="prose">
 {{ content | safe }}
   </div>
   <footer class="post__foot">
     <p>Disagree, or have a better example? <a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
-    <p><a href="/writing/">All writing</a></p>
+    <p><a class="more" href="/writing/">All writing</a></p>
   </footer>
 </article>

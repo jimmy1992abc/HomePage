@@ -4,7 +4,7 @@ Canonical instructions for AI coding agents working in this repository. Tool-spe
 
 ## What this is
 
-The source of jimmychen.com.au: a personal site with essays on using AI in finance and notes on projects. It is a static site built with Eleventy and published to GitHub Pages. See [README.md](README.md) for setup, content editing and publishing.
+The source of jimmychen.com.au: a personal site that presents an accountant first: finance practice, essays, and software and AI projects as a supporting interest. It is a static site built with Eleventy and published to GitHub Pages. See [README.md](README.md) for setup, content editing and publishing.
 
 ## Commands
 
@@ -45,6 +45,8 @@ These are requirements, not preferences. The tests enforce most of them.
 - Articles are first-person opinion. Do not invent figures, results, anecdotes or quotations.
 - Describe a project only with facts its author has stated. The trading project stays at the level of structure: no strategy, parameters or performance.
 - Plain language, short paragraphs, no marketing tone.
+- Accounting and finance lead; software and AI are framed as support, never as the main identity.
+- The homepage stays minimal: a hero, three tiles and contact. Detail belongs on the second-level pages.
 
 ## Engineering rules
 
@@ -52,5 +54,5 @@ These are requirements, not preferences. The tests enforce most of them.
 - Eleventy is the only dependency. Justify any addition in the pull request.
 - After any dependency change, check that `package-lock.json` has no `"extraneous"` entries; regenerate it with `npx npm@10 install` if it does, or `npm ci` fails on Linux.
 - Keep URLs stable: do not rename a published article file.
-- Colours come from the custom properties at the top of `site.css`; both the light and dark sets must keep WCAG AA contrast.
+- Colours and type come from the custom properties at the top of `site.css`; both the light and dark sets must keep WCAG AA contrast. No inline styles.
 - Work on a branch and open a pull request. Do not push to `main`, change repository settings or touch DNS unless asked.

@@ -1,15 +1,17 @@
 ---
 layout: layouts/base.njk
 title: Writing
-description: Notes on using AI in finance, by Jimmy Chen. What to automate, what to keep, and how to stay able to explain the number.
+description: Notes on finance by Jimmy Chen. Close, reconciliation and controls, and how to use AI in them while staying able to explain the number.
 permalink: /writing/
 ---
 <section class="wrap page">
   <header class="page__head">
-    <p class="label">Writing</p>
-    <h1>Notes on AI in finance</h1>
-    <p class="section__lead">What to automate, what to keep, and how to stay able to explain the number afterwards.</p>
+    <p class="eyebrow">Writing</p>
+    <h1>Notes on finance.</h1>
+    <p class="lead">Close, reconciliation and controls, and where AI fits into them.</p>
   </header>
-  {%- set posts = collections.writing %}
-  {% include "writing-list.njk" %}
+  <div class="page__body narrow">
+    {%- set posts = collections.writing %}
+    {% include "writing-list.njk" %}
+  </div>
 </section>
