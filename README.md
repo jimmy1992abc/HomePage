@@ -59,6 +59,7 @@ Edit `src/_data/site.json`. Every page, the feed and the footer read from it.
 | `src/projects/index.njk` | Projects page |
 | `src/_includes/layouts/` | Page shell and article layout |
 | `src/assets/css/site.css` | Styles; colour and type tokens are at the top |
+| `src/_includes/art/` | Inline SVG illustrations; colours come from the CSS tokens |
 | `src/feed.njk`, `src/sitemap.njk`, `src/robots.njk` | Atom feed, sitemap, robots.txt |
 | `tests/site.test.mjs` | Build and privacy checks |
 | `.github/workflows/` | `ci.yml` tests pull requests; `deploy.yml` publishes `main` |

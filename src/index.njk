@@ -3,28 +3,34 @@ layout: layouts/base.njk
 permalink: /
 ---
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero__inner">
+    <div class="hero__copy">
     <p class="eyebrow">Jimmy Chen · CPA · Sydney</p>
     <h1>Numbers you can stand behind.</h1>
     <p class="lead">I'm an accountant. Close, reporting and controls are the craft. Software and AI are how I make them faster and easier to check.</p>
     <p class="links"><a class="more" href="/finance/">How I approach finance</a> <a class="more" href="/about/">About me</a></p>
+    </div>
+    {% include "art/hero.njk" %}
   </div>
 </section>
 
 <section class="wrap tiles" aria-label="Sections">
   <div class="tile">
+    {% include "art/finance.njk" %}
     <p class="eyebrow">Accounting and finance</p>
     <h2>The craft comes first.</h2>
     <p class="tile__text">Month-end close, financial reporting, reconciliation and compliance, done so that every figure can be traced and explained.</p>
     <a class="more" href="/finance/">Finance</a>
   </div>
   <div class="tile">
+    {% include "art/writing.njk" %}
     <p class="eyebrow">Writing</p>
     <h2>Notes on finance.</h2>
     <p class="tile__text">Short essays on close, controls and where AI fits.</p>
     <a class="more" href="/writing/">Read the notes</a>
   </div>
   <div class="tile">
+    {% include "art/projects.njk" %}
     <p class="eyebrow">On the side</p>
     <h2>Software and AI.</h2>
     <p class="tile__text">A few things I've built, and what each one taught me.</p>

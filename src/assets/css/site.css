@@ -63,6 +63,21 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .links { display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; }
 .links--start { margin-top: 2rem; }
 
+/* Illustrations */
+.art { display: block; fill: none; stroke-width: 1.25; stroke-linecap: round; stroke-linejoin: round; color: var(--text); }
+.art--icon { width: 4.5rem; height: auto; margin-bottom: 1.25rem; }
+.art--hero { width: min(100%, 26rem); height: auto; }
+.art__ink { stroke: currentColor; }
+.art__ink--bold { stroke-width: 2; }
+.art__faint { stroke: var(--rule); }
+.art__accent { stroke: var(--accent); }
+.art__sheet { fill: var(--bg); stroke: currentColor; }
+.art__back { fill: var(--bg); stroke: var(--rule); }
+.art__seal { fill: var(--bg); stroke: var(--accent); }
+.art__node { fill: var(--bg); stroke: currentColor; }
+.art__node--accent { stroke: var(--accent); stroke-width: 2; }
+.art__text { fill: currentColor; stroke: none; font: 400 22px var(--serif); letter-spacing: 0.04em; }
+
 /* Navigation */
 .masthead__inner { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0 2rem; padding-block: 1.5rem 1.25rem; border-bottom: 1px solid var(--rule); }
 .masthead__name { font: 400 1.125rem/1.2 var(--serif); text-decoration: none; }
@@ -73,6 +88,7 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 
 /* Home */
 .hero { padding-block: clamp(4rem, 11vw, 8rem) clamp(3.5rem, 9vw, 6.5rem); }
+.hero__inner { display: grid; gap: 3rem; align-items: center; }
 .hero h1 { margin-top: 1.25rem; max-width: 19ch; font-size: clamp(2.5rem, 1.7rem + 3.6vw, 4rem); line-height: 1.08; letter-spacing: -0.018em; }
 .hero .lead { margin-top: 1.5rem; max-width: 32em; }
 .hero .links { margin-top: 2rem; }
@@ -158,6 +174,11 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 /* Footer */
 .colophon__inner { display: grid; gap: 0.3rem; padding-block: 1.5rem 2.5rem; border-top: 1px solid var(--rule); font-size: 0.8125rem; color: var(--muted); }
 .colophon p + p { margin-top: 0; }
+
+@media (min-width: 900px) {
+  .hero__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  .art--hero { justify-self: end; }
+}
 
 @media (min-width: 720px) {
   .tiles { grid-template-columns: repeat(3, 1fr); }
