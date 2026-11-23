@@ -9,6 +9,11 @@ permalink: /
     <h1>Numbers you can stand behind.</h1>
     <p class="lead">I'm an accountant. Close, reporting and controls are the craft. Software and AI are how I make them faster and easier to check.</p>
     <p class="links"><a class="more" href="/finance/">How I approach finance</a> <a class="more" href="/about/">About me</a></p>
+    <ul class="credentials" aria-label="Credentials">
+      <li><img class="credentials__logo--block" src="/assets/logos/cpa-australia.svg" alt="CPA Australia" width="121" height="52"></li>
+      <li><picture><source srcset="/assets/logos/unsw-sydney-white.png" media="(prefers-color-scheme: dark)"><img src="/assets/logos/unsw-sydney.png" alt="UNSW Sydney" width="330" height="140"></picture></li>
+      <li><img class="credentials__logo--badge" src="/assets/logos/scrum-alliance-csm.png" alt="Certified ScrumMaster" width="300" height="300"></li>
+    </ul>
     </div>
     {% include "art/hero.njk" %}
   </div>
@@ -42,6 +47,7 @@ permalink: /
   <div class="wrap">
     <h2 id="contact-title">Say hello.</h2>
     <p class="lead">If something here is useful, wrong, or worth arguing about, I'd like to hear it.</p>
-    <a class="email" href="mailto:{{ site.email }}">{{ site.email }}</a>
+    <a class="email" href="mailto:{{ site.email }}"><img class="icon" src="/assets/logos/gmail.svg" alt="" width="192" height="192">{{ site.email }}</a>
+    <p class="social"><a href="{{ site.linkedin }}" rel="me noopener">{% include "art/linkedin.njk" %}Connect on LinkedIn</a></p>
   </div>
 </section>

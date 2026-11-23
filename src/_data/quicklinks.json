@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Explore",
+    "links": [
+      { "label": "Finance", "url": "/finance/" },
+      { "label": "Writing", "url": "/writing/" },
+      { "label": "Projects", "url": "/projects/" },
+      { "label": "About", "url": "/about/" }
+    ]
+  },
+  {
+    "title": "Professional",
+    "links": [
+      { "label": "CPA Australia", "url": "https://www.cpaaustralia.com.au/" },
+      { "label": "UNSW Alumni", "url": "https://www.unsw.edu.au/alumni" }
+    ]
+  },
+  {
+    "title": "Elsewhere",
+    "links": [
+      { "label": "Clare Chen", "url": "https://www.clarechen.com.au/" }
+    ]
+  }
+]
