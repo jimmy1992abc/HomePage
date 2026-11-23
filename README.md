@@ -4,7 +4,7 @@ Jimmy Chen's personal site: essays on using AI in finance, and notes on the proj
 
 ## Local development
 
-Requires Node 20 or later.
+Requires Node 22 or later.
 
 ```sh
 npm ci
@@ -18,7 +18,8 @@ The tests cover routes, titles and descriptions, internal links, the feed and si
 To check the build against names that must never appear, without committing them:
 
 ```sh
-PRIVACY_BLOCKLIST="Name One,Name Two" npm test
+PRIVACY_BLOCKLIST="Name One,Name Two" npm test             # macOS, Linux, Git Bash
+$env:PRIVACY_BLOCKLIST = "Name One,Name Two"; npm test    # PowerShell
 ```
 
 The same value can be stored as a repository secret called `PRIVACY_BLOCKLIST`; both workflows pass it to the tests. A failure reports the file only, never the term.

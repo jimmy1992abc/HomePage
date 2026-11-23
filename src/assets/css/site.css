@@ -53,6 +53,8 @@ a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
 .wrap--narrow { width: min(var(--measure), 100% - 2.5rem); }
 
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
 .skip-link { position: absolute; left: 1rem; top: -6rem; z-index: 10; padding: 0.6rem 1rem; background: var(--accent); color: var(--on-accent); }
 .skip-link:focus { top: 1rem; }
 
